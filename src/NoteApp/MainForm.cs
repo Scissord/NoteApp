@@ -34,8 +34,8 @@ namespace NoteApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
+            NoteForm noteForm = new NoteForm();
+            noteForm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -45,7 +45,20 @@ namespace NoteApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            NoteForm noteForm = new NoteForm();
+            noteForm.ShowDialog();
+        }
 
+        private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NoteForm noteForm = new NoteForm();
+            noteForm.ShowDialog();
+        }
+
+        private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NoteForm noteForm = new NoteForm();
+            noteForm.ShowDialog();
         }
     }
 }
