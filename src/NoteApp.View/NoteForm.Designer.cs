@@ -80,7 +80,7 @@
             // CategoryAskingLabel
             // 
             this.CategoryAskingLabel.FormattingEnabled = true;
-            this.CategoryAskingLabel.Location = new System.Drawing.Point(70, 40);
+            this.CategoryAskingLabel.Location = new System.Drawing.Point(70, 38);
             this.CategoryAskingLabel.Name = "CategoryAskingLabel";
             this.CategoryAskingLabel.Size = new System.Drawing.Size(121, 21);
             this.CategoryAskingLabel.TabIndex = 4;
@@ -97,7 +97,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(70, 73);
+            this.dateTimePicker1.Location = new System.Drawing.Point(70, 65);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -105,10 +105,11 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(226, 73);
+            this.dateTimePicker2.Location = new System.Drawing.Point(229, 66);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(105, 20);
             this.dateTimePicker2.TabIndex = 7;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // panel1
             // 
