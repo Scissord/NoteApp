@@ -64,7 +64,7 @@
             this.AllNotesListBox.FormattingEnabled = true;
             this.AllNotesListBox.Location = new System.Drawing.Point(12, 54);
             this.AllNotesListBox.Name = "AllNotesListBox";
-            this.AllNotesListBox.Size = new System.Drawing.Size(267, 329);
+            this.AllNotesListBox.Size = new System.Drawing.Size(267, 355);
             this.AllNotesListBox.TabIndex = 0;
             // 
             // ShowCategoryLabel
@@ -85,7 +85,7 @@
             this.CategoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Location = new System.Drawing.Point(295, 64);
+            this.CategoryLabel.Location = new System.Drawing.Point(295, 54);
             this.CategoryLabel.Name = "CategoryLabel";
             this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
             this.CategoryLabel.TabIndex = 5;
@@ -96,7 +96,7 @@
             this.CategoryAnswerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CategoryAnswerLabel.AutoSize = true;
-            this.CategoryAnswerLabel.Location = new System.Drawing.Point(343, 64);
+            this.CategoryAnswerLabel.Location = new System.Drawing.Point(345, 54);
             this.CategoryAnswerLabel.Name = "CategoryAnswerLabel";
             this.CategoryAnswerLabel.Size = new System.Drawing.Size(33, 13);
             this.CategoryAnswerLabel.TabIndex = 6;
@@ -107,7 +107,7 @@
             this.CreatedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CreatedLabel.AutoSize = true;
-            this.CreatedLabel.Location = new System.Drawing.Point(295, 89);
+            this.CreatedLabel.Location = new System.Drawing.Point(295, 83);
             this.CreatedLabel.Name = "CreatedLabel";
             this.CreatedLabel.Size = new System.Drawing.Size(47, 13);
             this.CreatedLabel.TabIndex = 7;
@@ -118,7 +118,7 @@
             this.ModifiedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ModifiedLabel.AutoSize = true;
-            this.ModifiedLabel.Location = new System.Drawing.Point(446, 89);
+            this.ModifiedLabel.Location = new System.Drawing.Point(446, 83);
             this.ModifiedLabel.Name = "ModifiedLabel";
             this.ModifiedLabel.Size = new System.Drawing.Size(50, 13);
             this.ModifiedLabel.TabIndex = 8;
@@ -207,10 +207,8 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(348, 83);
+            this.dateTimePicker1.Location = new System.Drawing.Point(348, 80);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(92, 20);
             this.dateTimePicker1.TabIndex = 12;
@@ -221,9 +219,9 @@
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(502, 83);
+            this.dateTimePicker2.Location = new System.Drawing.Point(502, 80);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(93, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(92, 20);
             this.dateTimePicker2.TabIndex = 13;
             // 
             // ContentLabel
@@ -232,7 +230,7 @@
             this.ContentLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ContentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ContentLabel.ForeColor = System.Drawing.Color.Black;
-            this.ContentLabel.Location = new System.Drawing.Point(295, 35);
+            this.ContentLabel.Location = new System.Drawing.Point(294, 29);
             this.ContentLabel.Name = "ContentLabel";
             this.ContentLabel.Size = new System.Drawing.Size(286, 20);
             this.ContentLabel.TabIndex = 14;
@@ -241,14 +239,16 @@
             // AddNoteButton
             // 
             this.AddNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AddNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddNoteButton.BackgroundImage")));
+            this.AddNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddNoteButton.Image = ((System.Drawing.Image)(resources.GetObject("AddNoteButton.Image")));
-            this.AddNoteButton.Location = new System.Drawing.Point(14, 391);
-            this.AddNoteButton.Margin = new System.Windows.Forms.Padding(5);
+            this.AddNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddNoteButton.Location = new System.Drawing.Point(12, 421);
+            this.AddNoteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AddNoteButton.MaximumSize = new System.Drawing.Size(100, 100);
             this.AddNoteButton.Name = "AddNoteButton";
-            this.AddNoteButton.Padding = new System.Windows.Forms.Padding(5);
-            this.AddNoteButton.Size = new System.Drawing.Size(16, 16);
+            this.AddNoteButton.Padding = new System.Windows.Forms.Padding(40);
+            this.AddNoteButton.Size = new System.Drawing.Size(20, 20);
             this.AddNoteButton.TabIndex = 15;
             this.AddNoteButton.UseVisualStyleBackColor = true;
             this.AddNoteButton.Click += new System.EventHandler(this.button1_Click);
@@ -256,10 +256,13 @@
             // EditNoteButton
             // 
             this.EditNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EditNoteButton.Image = ((System.Drawing.Image)(resources.GetObject("EditNoteButton.Image")));
-            this.EditNoteButton.Location = new System.Drawing.Point(38, 389);
+            this.EditNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditNoteButton.BackgroundImage")));
+            this.EditNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EditNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.EditNoteButton.Location = new System.Drawing.Point(35, 421);
             this.EditNoteButton.Name = "EditNoteButton";
-            this.EditNoteButton.Size = new System.Drawing.Size(37, 47);
+            this.EditNoteButton.Size = new System.Drawing.Size(20, 20);
             this.EditNoteButton.TabIndex = 16;
             this.EditNoteButton.UseVisualStyleBackColor = true;
             this.EditNoteButton.Click += new System.EventHandler(this.button2_Click);
@@ -267,10 +270,13 @@
             // DeleteNoteButton
             // 
             this.DeleteNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteNoteButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteNoteButton.Image")));
-            this.DeleteNoteButton.Location = new System.Drawing.Point(113, 377);
+            this.DeleteNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeleteNoteButton.BackgroundImage")));
+            this.DeleteNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteNoteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.DeleteNoteButton.Location = new System.Drawing.Point(58, 421);
             this.DeleteNoteButton.Name = "DeleteNoteButton";
-            this.DeleteNoteButton.Size = new System.Drawing.Size(36, 61);
+            this.DeleteNoteButton.Size = new System.Drawing.Size(20, 20);
             this.DeleteNoteButton.TabIndex = 17;
             this.DeleteNoteButton.UseVisualStyleBackColor = true;
             this.DeleteNoteButton.Click += new System.EventHandler(this.button3_Click);
@@ -280,9 +286,9 @@
             this.ChosenNotesPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ChosenNotesPanel.Location = new System.Drawing.Point(298, 118);
+            this.ChosenNotesPanel.Location = new System.Drawing.Point(298, 106);
             this.ChosenNotesPanel.Name = "ChosenNotesPanel";
-            this.ChosenNotesPanel.Size = new System.Drawing.Size(490, 327);
+            this.ChosenNotesPanel.Size = new System.Drawing.Size(490, 339);
             this.ChosenNotesPanel.TabIndex = 18;
             // 
             // contextMenuStrip1
@@ -310,6 +316,7 @@
             this.Controls.Add(this.ShowCategoryLabel);
             this.Controls.Add(this.AllNotesListBox);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "NoteApp";
             this.Load += new System.EventHandler(this.MainForm_Load);

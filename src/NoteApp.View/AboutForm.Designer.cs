@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.NoteAppLabel = new System.Windows.Forms.Label();
             this.VersionLabel = new System.Windows.Forms.Label();
             this.AuthorLabel = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@
             // AuthorLabel
             // 
             this.AuthorLabel.AutoSize = true;
-            this.AuthorLabel.Location = new System.Drawing.Point(25, 88);
+            this.AuthorLabel.Location = new System.Drawing.Point(25, 84);
             this.AuthorLabel.Name = "AuthorLabel";
             this.AuthorLabel.Size = new System.Drawing.Size(153, 13);
             this.AuthorLabel.TabIndex = 2;
@@ -127,6 +128,7 @@
             this.Controls.Add(this.AuthorLabel);
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.NoteAppLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutForm";
             this.Text = "About";
             this.Load += new System.EventHandler(this.AboutForm_Load);

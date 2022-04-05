@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
             this.TitleLabel = new System.Windows.Forms.Label();
             this.CategoryLabel2 = new System.Windows.Forms.Label();
             this.CreatedLabel2 = new System.Windows.Forms.Label();
@@ -36,9 +37,9 @@
             this.ModifiedLabel2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -62,7 +63,7 @@
             // CreatedLabel2
             // 
             this.CreatedLabel2.AutoSize = true;
-            this.CreatedLabel2.Location = new System.Drawing.Point(12, 73);
+            this.CreatedLabel2.Location = new System.Drawing.Point(12, 67);
             this.CreatedLabel2.Name = "CreatedLabel2";
             this.CreatedLabel2.Size = new System.Drawing.Size(47, 13);
             this.CreatedLabel2.TabIndex = 2;
@@ -74,7 +75,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ContentTextBox.Location = new System.Drawing.Point(70, 12);
             this.ContentTextBox.Name = "ContentTextBox";
-            this.ContentTextBox.Size = new System.Drawing.Size(718, 20);
+            this.ContentTextBox.Size = new System.Drawing.Size(528, 20);
             this.ContentTextBox.TabIndex = 3;
             // 
             // CategoryAskingLabel
@@ -88,7 +89,7 @@
             // ModifiedLabel2
             // 
             this.ModifiedLabel2.AutoSize = true;
-            this.ModifiedLabel2.Location = new System.Drawing.Point(173, 73);
+            this.ModifiedLabel2.Location = new System.Drawing.Point(173, 67);
             this.ModifiedLabel2.Name = "ModifiedLabel2";
             this.ModifiedLabel2.Size = new System.Drawing.Size(50, 13);
             this.ModifiedLabel2.TabIndex = 5;
@@ -97,7 +98,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(70, 65);
+            this.dateTimePicker1.Location = new System.Drawing.Point(70, 64);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -105,23 +106,16 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(229, 66);
+            this.dateTimePicker2.Location = new System.Drawing.Point(229, 64);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(105, 20);
             this.dateTimePicker2.TabIndex = 7;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(15, 99);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(773, 310);
-            this.panel1.TabIndex = 8;
-            // 
             // OkButton
             // 
             this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OkButton.Location = new System.Drawing.Point(621, 415);
+            this.OkButton.Location = new System.Drawing.Point(442, 452);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 23);
             this.OkButton.TabIndex = 9;
@@ -132,7 +126,7 @@
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(702, 415);
+            this.CancelButton.Location = new System.Drawing.Point(523, 452);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 10;
@@ -140,14 +134,25 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(12, 90);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(586, 356);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
+            // 
             // NoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(610, 487);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ModifiedLabel2);
@@ -156,6 +161,7 @@
             this.Controls.Add(this.CreatedLabel2);
             this.Controls.Add(this.CategoryLabel2);
             this.Controls.Add(this.TitleLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoteForm";
             this.Text = "Add/Edit Note";
             this.Load += new System.EventHandler(this.NoteForm_Load);
@@ -174,8 +180,8 @@
         private System.Windows.Forms.Label ModifiedLabel2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
