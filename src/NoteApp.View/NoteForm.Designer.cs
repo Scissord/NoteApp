@@ -35,11 +35,11 @@
             this.ContentTextBox = new System.Windows.Forms.TextBox();
             this.CategoryAskingLabel = new System.Windows.Forms.ComboBox();
             this.ModifiedLabel2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.CreatedDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.ModifiedDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.NotesTextBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -54,7 +54,7 @@
             // CategoryLabel2
             // 
             this.CategoryLabel2.AutoSize = true;
-            this.CategoryLabel2.Location = new System.Drawing.Point(12, 43);
+            this.CategoryLabel2.Location = new System.Drawing.Point(12, 41);
             this.CategoryLabel2.Name = "CategoryLabel2";
             this.CategoryLabel2.Size = new System.Drawing.Size(52, 13);
             this.CategoryLabel2.TabIndex = 1;
@@ -95,22 +95,22 @@
             this.ModifiedLabel2.TabIndex = 5;
             this.ModifiedLabel2.Text = "Modified:";
             // 
-            // dateTimePicker1
+            // CreatedDateTimePicker2
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(70, 64);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.CreatedDateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.CreatedDateTimePicker2.Location = new System.Drawing.Point(70, 64);
+            this.CreatedDateTimePicker2.Name = "CreatedDateTimePicker2";
+            this.CreatedDateTimePicker2.Size = new System.Drawing.Size(97, 20);
+            this.CreatedDateTimePicker2.TabIndex = 6;
             // 
-            // dateTimePicker2
+            // ModifiedDateTimePicker2
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(229, 64);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(105, 20);
-            this.dateTimePicker2.TabIndex = 7;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.ModifiedDateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ModifiedDateTimePicker2.Location = new System.Drawing.Point(229, 64);
+            this.ModifiedDateTimePicker2.Name = "ModifiedDateTimePicker2";
+            this.ModifiedDateTimePicker2.Size = new System.Drawing.Size(105, 20);
+            this.ModifiedDateTimePicker2.TabIndex = 7;
+            this.ModifiedDateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // OkButton
             // 
@@ -134,27 +134,24 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // richTextBox1
+            // NotesTextBox2
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 90);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(586, 356);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
+            this.NotesTextBox2.Location = new System.Drawing.Point(15, 90);
+            this.NotesTextBox2.Multiline = true;
+            this.NotesTextBox2.Name = "NotesTextBox2";
+            this.NotesTextBox2.Size = new System.Drawing.Size(583, 356);
+            this.NotesTextBox2.TabIndex = 11;
             // 
             // NoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 487);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.NotesTextBox2);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.ModifiedDateTimePicker2);
+            this.Controls.Add(this.CreatedDateTimePicker2);
             this.Controls.Add(this.ModifiedLabel2);
             this.Controls.Add(this.CategoryAskingLabel);
             this.Controls.Add(this.ContentTextBox);
@@ -178,10 +175,10 @@
         private System.Windows.Forms.TextBox ContentTextBox;
         private System.Windows.Forms.ComboBox CategoryAskingLabel;
         private System.Windows.Forms.Label ModifiedLabel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker CreatedDateTimePicker2;
+        private System.Windows.Forms.DateTimePicker ModifiedDateTimePicker2;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox NotesTextBox2;
     }
 }
