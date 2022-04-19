@@ -29,12 +29,12 @@ namespace NoteApp.Model
         /// <summary>
         /// Время создания заметки.
         /// </summary>
-        private DateTime _timeOfCreation;
+        private DateTime _createdAt;
 
         /// <summary>
         /// Время последнего изменения заметки.
         /// </summary>
-        private DateTime _lastModifiedTime;
+        private DateTime _modifiedAt;
 
         /// <summary>
         /// Возвращает или задает название заметки.
@@ -49,10 +49,11 @@ namespace NoteApp.Model
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException($"Title must be less or equals 50 symbols. Please, try again");
+                    throw new ArgumentException($"Title must be less or equals 50 symbols." +
+                        $" Please, try again");
                 }
                 _title = value;
-                _lastModifiedTime = DateTime.UtcNow;
+                _modifiedAt = DateTime.UtcNow;
             }
         }
         
@@ -68,7 +69,7 @@ namespace NoteApp.Model
             set
             {
                 _category = value;
-                _lastModifiedTime = DateTime.UtcNow;
+                _modifiedAt = DateTime.UtcNow;
             }
         }
 
@@ -84,18 +85,18 @@ namespace NoteApp.Model
             set
             {
                 _text = value;
-                _lastModifiedTime = DateTime.UtcNow;
+                _modifiedAt = DateTime.UtcNow;
             }
         }
 
         /// <summary>
         /// Возвращает время создания заметки.
         /// </summary>
-        public DateTime TimeOfCreation
+        public DateTime CreatedAt
         {
             get
             {
-                return _timeOfCreation;
+                return _createdAt;
             }
         }
 
@@ -110,7 +111,8 @@ namespace NoteApp.Model
             Title = title;
             Category = category;
             Text = text;
-            _timeOfCreation = DateTime.UtcNow;  
+            _createdAt = DateTime.UtcNow;
+            _modifiedAt = DateTime.UtcNow;
         }
     }
 }
