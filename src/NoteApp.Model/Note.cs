@@ -14,12 +14,12 @@ namespace NoteApp.Model
         /// <summary>
         /// Название заметки.
         /// </summary>
-        private string _title;
+        private string _title = "Без названия";
 
         /// <summary>
         /// Категория заметки.
         /// </summary>
-        private string _category;
+        private Category _category;
 
         /// <summary>
         /// Текст заметки.
@@ -29,12 +29,12 @@ namespace NoteApp.Model
         /// <summary>
         /// Время создания заметки.
         /// </summary>
-        private string _timeOfCreation;
+        private DateTime _timeOfCreation;
 
         /// <summary>
         /// Время последнего изменения заметки.
         /// </summary>
-        private string _lastModifiedTime;
+        private DateTime _lastModifiedTime;
 
         /// <summary>
         /// Возвращает или задает название заметки.
@@ -52,13 +52,14 @@ namespace NoteApp.Model
                     throw new ArgumentException($"Title must be less or equals 50 symbols. Please, try again");
                 }
                 _title = value;
+                _lastModifiedTime = DateTime.UtcNow;
             }
         }
-
+        
         /// <summary>
         /// Возвращает или задает категорию заметки.
         /// </summary>
-        public string Category
+        public Category Category
         {
             get
             {
@@ -67,6 +68,7 @@ namespace NoteApp.Model
             set
             {
                 _category = value;
+                _lastModifiedTime = DateTime.UtcNow;
             }
         }
 
@@ -81,7 +83,19 @@ namespace NoteApp.Model
             }
             set
             {
-                _category = value;
+                _text = value;
+                _lastModifiedTime = DateTime.UtcNow;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает время создания заметки.
+        /// </summary>
+        public DateTime TimeOfCreation
+        {
+            get
+            {
+                return _timeOfCreation;
             }
         }
 
@@ -91,11 +105,12 @@ namespace NoteApp.Model
         /// <param name="title">Название заметки</param>
         /// <param name="category">Категория заметки</param>
         /// <param name="text">Текст заметки</param>
-        public Note(string title, string category, string text)
+        public Note(string title, Category category, string text)
         {
             Title = title;
             Category = category;
             Text = text;
+            _timeOfCreation = DateTime.UtcNow;  
         }
     }
 }
