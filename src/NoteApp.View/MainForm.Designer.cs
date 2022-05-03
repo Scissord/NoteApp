@@ -1,7 +1,15 @@
-﻿namespace NoteApp.View
+﻿using NoteApp.Model;
+using System;
+
+namespace NoteApp.View
 {
     partial class MainForm
     {
+        /// <summary>
+        /// Закрытое поле типа Project.
+        /// </summary>
+        private Project _project;
+
         /// <summary>
         /// Обязательная переменная конструктора.
         /// </summary>
@@ -18,6 +26,38 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// Обновить элемент ListBox.
+        /// </summary>
+        private void UpdateListBox()
+        {
+            AllNotesListBox.Items.Clear();
+            for (int i = 0; i < _project.Notes.Count; i++)
+            {
+                AllNotesListBox.Items.Add(_project.Notes[i].Title);
+            }
+        }
+
+        /// <summary>
+        /// Генерация новых данных.
+        /// </summary>
+        private void AddNote()
+        {
+            Random rnd = new Random();
+        }
+
+        private void RemoveNote(int index)
+        {
+            if (index == -1)
+            {
+                return;
+            }
+            else
+            {
+                AllNotesListBox.Items.RemoveAt(index);
+            }
         }
 
         #region Код, автоматически созданный конструктором форм Windows
