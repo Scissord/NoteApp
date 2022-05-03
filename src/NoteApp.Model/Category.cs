@@ -11,12 +11,12 @@ namespace NoteApp.Model
     /// </summary>
     public enum Category
     {
-        Job,
-        House,
-        HealthAndSport,
-        People,
-        Documents, 
-        Finance,    
-        Other,
+        Job = 0,
+        House = 1,
+        HealthAndSport = 2,
+        People = 3,
+        Documents = 4, 
+        Finance = 5,    
+        Other = 6,
     }
 }
