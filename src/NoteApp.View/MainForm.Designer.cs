@@ -1,5 +1,6 @@
 ﻿using NoteApp.Model;
 using System;
+using System.Collections.Generic;
 
 namespace NoteApp.View
 {
@@ -45,7 +46,28 @@ namespace NoteApp.View
         /// </summary>
         private void AddNote()
         {
+            List<string> words = new List<string>();
+            char[] letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();    
             Random rnd = new Random();
+
+            for (int i = 1; i < 2; i++)
+            {
+                string word = "";
+                for (int j = 1; j <= 7; j++)
+                {
+                    // Выбор случайного числа от 0 до 25
+                    // для выбора буквы из массива букв.
+                    int letter_num = rnd.Next(0, letters.Length - 1);
+
+                    // Добавить письмо.
+                    word += letters[letter_num];
+                }
+
+                // Добавьте слово в список.
+                words.Add(word);
+            }
+            int cat = rnd.Next(0, 6);
+            _project.Notes.Add(new Note(words[0], Category, words[1]));
         }
 
         private void RemoveNote(int index)
