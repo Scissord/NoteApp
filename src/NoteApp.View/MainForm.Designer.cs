@@ -7,11 +7,6 @@ namespace NoteApp.View
     partial class MainForm
     {
         /// <summary>
-        /// Закрытое поле типа Project.
-        /// </summary>
-        private Project _project;
-
-        /// <summary>
         /// Обязательная переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -28,60 +23,6 @@ namespace NoteApp.View
             }
             base.Dispose(disposing);
         }
-
-        /// <summary>
-        /// Обновить элемент ListBox.
-        /// </summary>
-        private void UpdateListBox()
-        {
-            AllNotesListBox.Items.Clear();
-            for (int i = 0; i < _project.Notes.Count; i++)
-            {
-                AllNotesListBox.Items.Add(_project.Notes[i].Title);
-            }
-        }
-
-        /// <summary>
-        /// Генерация новых данных.
-        /// </summary>
-        private void AddNote()
-        {
-            List<string> words = new List<string>();
-            char[] letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();    
-            Random rnd = new Random();
-
-            for (int i = 1; i < 2; i++)
-            {
-                string word = "";
-                for (int j = 1; j <= 7; j++)
-                {
-                    // Выбор случайного числа от 0 до 25
-                    // для выбора буквы из массива букв.
-                    int letter_num = rnd.Next(0, letters.Length - 1);
-
-                    // Добавить письмо.
-                    word += letters[letter_num];
-                }
-
-                // Добавьте слово в список.
-                words.Add(word);
-            }
-            int cat = rnd.Next(0, 6);
-            _project.Notes.Add(new Note(words[0], Category, words[1]));
-        }
-
-        private void RemoveNote(int index)
-        {
-            if (index == -1)
-            {
-                return;
-            }
-            else
-            {
-                AllNotesListBox.Items.RemoveAt(index);
-            }
-        }
-
         #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
@@ -128,6 +69,7 @@ namespace NoteApp.View
             this.AllNotesListBox.Name = "AllNotesListBox";
             this.AllNotesListBox.Size = new System.Drawing.Size(267, 355);
             this.AllNotesListBox.TabIndex = 0;
+            this.AllNotesListBox.SelectedIndexChanged += new System.EventHandler(this.AllNotesListBox_SelectedIndexChanged);
             // 
             // ShowCategoryLabel
             // 
@@ -209,7 +151,7 @@ namespace NoteApp.View
             // ExitToolStripMenu
             // 
             this.ExitToolStripMenu.Name = "ExitToolStripMenu";
-            this.ExitToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenu.Size = new System.Drawing.Size(93, 22);
             this.ExitToolStripMenu.Text = "Exit";
             // 
             // EditToolStripMenu
@@ -225,21 +167,21 @@ namespace NoteApp.View
             // AddNoteToolStripMenu
             // 
             this.AddNoteToolStripMenu.Name = "AddNoteToolStripMenu";
-            this.AddNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.AddNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
             this.AddNoteToolStripMenu.Text = "Add Note";
             this.AddNoteToolStripMenu.Click += new System.EventHandler(this.addNoteToolStripMenuItem_Click);
             // 
             // EditNoteToolStripMenu
             // 
             this.EditNoteToolStripMenu.Name = "EditNoteToolStripMenu";
-            this.EditNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.EditNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
             this.EditNoteToolStripMenu.Text = "Edit Note";
             this.EditNoteToolStripMenu.Click += new System.EventHandler(this.editNoteToolStripMenuItem_Click);
             // 
             // RemoveNoteToolStripMenu
             // 
             this.RemoveNoteToolStripMenu.Name = "RemoveNoteToolStripMenu";
-            this.RemoveNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.RemoveNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
             this.RemoveNoteToolStripMenu.Text = "Remove Note";
             // 
             // HelpToolStripMenu
@@ -253,7 +195,7 @@ namespace NoteApp.View
             // AboutToolStripMenu
             // 
             this.AboutToolStripMenu.Name = "AboutToolStripMenu";
-            this.AboutToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.AboutToolStripMenu.Size = new System.Drawing.Size(107, 22);
             this.AboutToolStripMenu.Text = "About";
             this.AboutToolStripMenu.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
