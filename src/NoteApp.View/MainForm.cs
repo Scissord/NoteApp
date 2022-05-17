@@ -42,7 +42,6 @@ namespace NoteApp.View
         {
             AddNote();
             UpdateListBox();
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -60,8 +59,8 @@ namespace NoteApp.View
 
         private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NoteForm noteForm = new NoteForm();
-            noteForm.ShowDialog();
+            AddNote();
+            UpdateListBox();
         }
 
         private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,6 +74,14 @@ namespace NoteApp.View
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
         }
+
+        private void RemoveNoteToolStripMenu_Click(object sender, EventArgs e)
+        {
+            int index = AllNotesListBox.SelectedIndex;
+            RemoveNote(index);
+            UpdateListBox();
+        }
+
         /// <summary>
         /// Обновить элемент ListBox.
         /// </summary>
