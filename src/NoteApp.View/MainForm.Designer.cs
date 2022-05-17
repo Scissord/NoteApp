@@ -181,8 +181,9 @@ namespace NoteApp.View
             // RemoveNoteToolStripMenu
             // 
             this.RemoveNoteToolStripMenu.Name = "RemoveNoteToolStripMenu";
-            this.RemoveNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
+            this.RemoveNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
             this.RemoveNoteToolStripMenu.Text = "Remove Note";
+            this.RemoveNoteToolStripMenu.Click += new System.EventHandler(this.RemoveNoteToolStripMenu_Click);
             // 
             // HelpToolStripMenu
             // 
