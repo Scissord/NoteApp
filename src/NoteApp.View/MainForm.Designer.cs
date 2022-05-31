@@ -82,7 +82,6 @@ namespace NoteApp.View
             this.ShowCategoryLabel.Size = new System.Drawing.Size(82, 13);
             this.ShowCategoryLabel.TabIndex = 4;
             this.ShowCategoryLabel.Text = "Show Category:";
-            this.ShowCategoryLabel.Click += new System.EventHandler(this.label4_Click);
             // 
             // CategoryLabel
             // 
@@ -153,6 +152,7 @@ namespace NoteApp.View
             this.ExitToolStripMenu.Name = "ExitToolStripMenu";
             this.ExitToolStripMenu.Size = new System.Drawing.Size(93, 22);
             this.ExitToolStripMenu.Text = "Exit";
+            this.ExitToolStripMenu.Click += new System.EventHandler(this.ExitToolStripMenu_Click);
             // 
             // EditToolStripMenu
             // 
@@ -167,14 +167,14 @@ namespace NoteApp.View
             // AddNoteToolStripMenu
             // 
             this.AddNoteToolStripMenu.Name = "AddNoteToolStripMenu";
-            this.AddNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
+            this.AddNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
             this.AddNoteToolStripMenu.Text = "Add Note";
             this.AddNoteToolStripMenu.Click += new System.EventHandler(this.addNoteToolStripMenuItem_Click);
             // 
             // EditNoteToolStripMenu
             // 
             this.EditNoteToolStripMenu.Name = "EditNoteToolStripMenu";
-            this.EditNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
+            this.EditNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
             this.EditNoteToolStripMenu.Text = "Edit Note";
             this.EditNoteToolStripMenu.Click += new System.EventHandler(this.editNoteToolStripMenuItem_Click);
             // 
@@ -217,7 +217,6 @@ namespace NoteApp.View
             this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
             this.CreatedDateTimePicker.Size = new System.Drawing.Size(92, 20);
             this.CreatedDateTimePicker.TabIndex = 12;
-            this.CreatedDateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // ModifiedDateTimePicker
             // 
@@ -254,7 +253,7 @@ namespace NoteApp.View
             this.AddNoteButton.Size = new System.Drawing.Size(20, 20);
             this.AddNoteButton.TabIndex = 15;
             this.AddNoteButton.UseVisualStyleBackColor = true;
-            this.AddNoteButton.Click += new System.EventHandler(this.button1_Click);
+            this.AddNoteButton.Click += new System.EventHandler(this.AddNoteButton_Click);
             // 
             // EditNoteButton
             // 
@@ -268,7 +267,7 @@ namespace NoteApp.View
             this.EditNoteButton.Size = new System.Drawing.Size(20, 20);
             this.EditNoteButton.TabIndex = 16;
             this.EditNoteButton.UseVisualStyleBackColor = true;
-            this.EditNoteButton.Click += new System.EventHandler(this.button2_Click);
+            this.EditNoteButton.Click += new System.EventHandler(this.EditNoteButton_Click);
             // 
             // DeleteNoteButton
             // 
@@ -282,7 +281,7 @@ namespace NoteApp.View
             this.DeleteNoteButton.Size = new System.Drawing.Size(20, 20);
             this.DeleteNoteButton.TabIndex = 17;
             this.DeleteNoteButton.UseVisualStyleBackColor = true;
-            this.DeleteNoteButton.Click += new System.EventHandler(this.button3_Click);
+            this.DeleteNoteButton.Click += new System.EventHandler(this.DeleteNoteButton_Click);
             // 
             // MainContextMenuStrip
             // 
@@ -320,6 +319,7 @@ namespace NoteApp.View
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "NoteApp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();

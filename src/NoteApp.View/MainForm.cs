@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace NoteApp.View
 {
@@ -18,63 +19,85 @@ namespace NoteApp.View
         /// </summary>
         private Project _project = new Project();
 
+        /// <summary>
+        /// Запуск главного окна.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Загрузка главного окна.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AddNote();
-            UpdateListBox();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Обработчик события для удаления заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteNoteButton_Click(object sender, EventArgs e)
         {
             int index = AllNotesListBox.SelectedIndex;
             RemoveNote(index);
             UpdateListBox();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Обработчик события для изменения заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditNoteButton_Click(object sender, EventArgs e)
         {
             NoteForm noteForm = new NoteForm();
             noteForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Обработчик события Strip Menu для добавления заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNote();
             UpdateListBox();
         }
 
+        /// <summary>
+        /// Обработчик события Strip Menu для изменения заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NoteForm noteForm = new NoteForm();
             noteForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Обработчик события для вызова формы с информацией.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Обработчик события Strip Menu для удаления заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveNoteToolStripMenu_Click(object sender, EventArgs e)
         {
             int index = AllNotesListBox.SelectedIndex;
@@ -94,10 +117,23 @@ namespace NoteApp.View
             }
         }
 
-        private void UpdateSelectObject(int index)
+        /// <summary>
+        /// Обновить выбранную заметку.
+        /// </summary>
+        /// <param name="index">Индекс выбранного элемента.</param>
+        private void UpdateSelectNote(int index)
         {
             NotesTextBox.Text = _project.Notes[index].Text;
         }
+
+        /// <summary>
+        /// Очистить выбранную заметку.
+        /// </summary>
+        private void ClearSelectedNote()
+        {
+            NotesTextBox.Clear();
+        }
+
         /// <summary>
         /// Генерация новых данных.
         /// </summary>
@@ -105,11 +141,15 @@ namespace NoteApp.View
         {
             var surname = System.IO.Path.GetRandomFileName();
             var surname2 = System.IO.Path.GetRandomFileName();
-            Random rnd = new Random();
-            int cat = rnd.Next(0, Enum.GetValues(typeof(Category)).Length);
-            _project.Notes.Add(new Note(surname, (Category)cat, surname2));
+            Random round = new Random();
+            int category = round.Next(0, Enum.GetValues(typeof(Category)).Length);
+            _project.Notes.Add(new Note(surname, (Category)category, surname2));
         }
 
+        /// <summary>
+        /// Удалить выбранную заметку.
+        /// </summary>
+        /// <param name="index">Индекс выбранного элемента.</param>
         private void RemoveNote(int index)
         {
             if (index == -1)
@@ -118,21 +158,78 @@ namespace NoteApp.View
             }
             else
             {
-                AllNotesListBox.Items.RemoveAt(index);
-                _project.Notes.RemoveAt(index);
+                DialogResult result = MessageBox.Show(@"Do you really want to remove" +
+                    $"{ _project.Notes[AllNotesListBox.SelectedIndex].Title}", "Message",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.OK)
+                {
+                    AllNotesListBox.Items.RemoveAt(index);
+                    _project.Notes.RemoveAt(index);
+                }
             }
+            
         }
-
+        
+        /// <summary>
+        /// Изменение выбранной заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AllNotesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = AllNotesListBox.SelectedIndex;
             if (index == -1)
             {
-                return;
+                ClearSelectedNote();
             }
             else
             {
-                UpdateSelectObject(index);
+                UpdateSelectNote(index);
+            }
+        }
+
+        /// <summary>
+        /// Завершение программы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExitToolStripMenu_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        
+        /// <summary>
+        /// Обработчик события для добавления заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNoteButton_Click(object sender, EventArgs e)
+        {
+            AddNote();
+            UpdateListBox();
+        }
+
+        /// <summary>
+        /// Выход из приложения.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            DialogResult result = MessageBox.Show(@"Do you really want to exit?", "Message",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
+            if (result == DialogResult.OK)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                return;
             }
         }
     }

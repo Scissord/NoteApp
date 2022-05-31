@@ -14,6 +14,7 @@ namespace NoteApp.Model
         /// <summary>
         /// Возвращает или задаёт заметку.
         /// </summary>
+        
         public List<Note> Notes { get; set; } = new List<Note>();
     }
 }
