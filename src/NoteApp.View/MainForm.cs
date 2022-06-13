@@ -58,11 +58,18 @@ namespace NoteApp.View
         /// </summary>
         private void AddNote()
         {
-            var title = System.IO.Path.GetRandomFileName();
+            var noteForm = new NoteForm();
+            noteForm.ShowDialog();
+            if (noteForm.DialogResult == DialogResult.OK)
+            {
+                var newData = noteForm.Note;
+                _project.Notes.Add(newData);
+            }   
+            /*var title = System.IO.Path.GetRandomFileName();
             var text = System.IO.Path.GetRandomFileName();
             Random random = new Random();
             int category = random.Next(0, Enum.GetValues(typeof(Category)).Length);
-            _project.Notes.Add(new Note(title, (Category)category, text));
+            _project.Notes.Add(new Note(title, (Category)category, text));*/
         }
 
         /// <summary>
