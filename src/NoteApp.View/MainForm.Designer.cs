@@ -150,7 +150,7 @@ namespace NoteApp.View
             // ExitToolStripMenu
             // 
             this.ExitToolStripMenu.Name = "ExitToolStripMenu";
-            this.ExitToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenu.Size = new System.Drawing.Size(93, 22);
             this.ExitToolStripMenu.Text = "Exit";
             this.ExitToolStripMenu.Click += new System.EventHandler(this.ExitToolStripMenu_Click);
             // 
@@ -167,21 +167,21 @@ namespace NoteApp.View
             // AddNoteToolStripMenu
             // 
             this.AddNoteToolStripMenu.Name = "AddNoteToolStripMenu";
-            this.AddNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.AddNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
             this.AddNoteToolStripMenu.Text = "Add Note";
             this.AddNoteToolStripMenu.Click += new System.EventHandler(this.AddNoteToolStripMenuItem_Click);
             // 
             // EditNoteToolStripMenu
             // 
             this.EditNoteToolStripMenu.Name = "EditNoteToolStripMenu";
-            this.EditNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.EditNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
             this.EditNoteToolStripMenu.Text = "Edit Note";
             this.EditNoteToolStripMenu.Click += new System.EventHandler(this.EditNoteToolStripMenuItem_Click);
             // 
             // RemoveNoteToolStripMenu
             // 
             this.RemoveNoteToolStripMenu.Name = "RemoveNoteToolStripMenu";
-            this.RemoveNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.RemoveNoteToolStripMenu.Size = new System.Drawing.Size(146, 22);
             this.RemoveNoteToolStripMenu.Text = "Remove Note";
             this.RemoveNoteToolStripMenu.Click += new System.EventHandler(this.RemoveNoteToolStripMenu_Click);
             // 
@@ -196,7 +196,7 @@ namespace NoteApp.View
             // AboutToolStripMenu
             // 
             this.AboutToolStripMenu.Name = "AboutToolStripMenu";
-            this.AboutToolStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.AboutToolStripMenu.Size = new System.Drawing.Size(107, 22);
             this.AboutToolStripMenu.Text = "About";
             this.AboutToolStripMenu.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 

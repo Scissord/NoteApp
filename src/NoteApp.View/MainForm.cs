@@ -54,7 +54,7 @@ namespace NoteApp.View
         }
 
         /// <summary>
-        /// Генерация новых данных.
+        /// Добавление новой заметки.
         /// </summary>
         private void AddNote()
         {
@@ -65,11 +65,30 @@ namespace NoteApp.View
                 var newData = noteForm.Note;
                 _project.Notes.Add(newData);
             }   
-            /*var title = System.IO.Path.GetRandomFileName();
-            var text = System.IO.Path.GetRandomFileName();
-            Random random = new Random();
-            int category = random.Next(0, Enum.GetValues(typeof(Category)).Length);
-            _project.Notes.Add(new Note(title, (Category)category, text));*/
+        }
+
+        /// <summary>
+        /// Редактирование существующей заметки.
+        /// </summary>
+        private void EditNote()
+        {
+            if(AllNotesListBox.SelectedIndex < 0)
+            {
+                return;
+            }
+            var selectedIndex = AllNotesListBox.SelectedIndex;
+            Note selectedNote = _project.Notes[selectedIndex];
+            Note clonedNote = (Note)selectedNote.Clone();
+            var noteForm = new NoteForm();
+            noteForm.ShowDialog();
+            if (noteForm.DialogResult == DialogResult.OK)
+            {
+                var updatedNote = noteForm.Note;
+                AllNotesListBox.Items.RemoveAt(selectedIndex);
+                _project.Notes.RemoveAt(selectedIndex);
+                _project.Notes.Insert(selectedIndex, updatedNote);
+                AllNotesListBox.Items.Insert(selectedIndex, updatedNote);
+            }
         }
 
         /// <summary>
@@ -158,8 +177,8 @@ namespace NoteApp.View
         /// </summary>
         private void EditNoteButton_Click(object sender, EventArgs e)
         {
-            NoteForm noteForm = new NoteForm();
-            noteForm.ShowDialog();
+            EditNote();
+            UpdateListBox();
         }
 
         /// <summary>

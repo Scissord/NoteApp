@@ -125,5 +125,14 @@ namespace NoteApp.Model
             _createdAt = DateTime.Now;
             _modifiedAt = DateTime.Now;
         }
+
+        /// <summary>
+        /// Метод копирования.
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return new Note(this.Title, this.Category, this.Text);
+        }
     }
 }
