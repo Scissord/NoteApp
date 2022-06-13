@@ -150,7 +150,7 @@ namespace NoteApp.View
             // ExitToolStripMenu
             // 
             this.ExitToolStripMenu.Name = "ExitToolStripMenu";
-            this.ExitToolStripMenu.Size = new System.Drawing.Size(93, 22);
+            this.ExitToolStripMenu.Size = new System.Drawing.Size(180, 22);
             this.ExitToolStripMenu.Text = "Exit";
             this.ExitToolStripMenu.Click += new System.EventHandler(this.ExitToolStripMenu_Click);
             // 
@@ -169,14 +169,14 @@ namespace NoteApp.View
             this.AddNoteToolStripMenu.Name = "AddNoteToolStripMenu";
             this.AddNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
             this.AddNoteToolStripMenu.Text = "Add Note";
-            this.AddNoteToolStripMenu.Click += new System.EventHandler(this.addNoteToolStripMenuItem_Click);
+            this.AddNoteToolStripMenu.Click += new System.EventHandler(this.AddNoteToolStripMenuItem_Click);
             // 
             // EditNoteToolStripMenu
             // 
             this.EditNoteToolStripMenu.Name = "EditNoteToolStripMenu";
             this.EditNoteToolStripMenu.Size = new System.Drawing.Size(180, 22);
             this.EditNoteToolStripMenu.Text = "Edit Note";
-            this.EditNoteToolStripMenu.Click += new System.EventHandler(this.editNoteToolStripMenuItem_Click);
+            this.EditNoteToolStripMenu.Click += new System.EventHandler(this.EditNoteToolStripMenuItem_Click);
             // 
             // RemoveNoteToolStripMenu
             // 
@@ -196,9 +196,9 @@ namespace NoteApp.View
             // AboutToolStripMenu
             // 
             this.AboutToolStripMenu.Name = "AboutToolStripMenu";
-            this.AboutToolStripMenu.Size = new System.Drawing.Size(107, 22);
+            this.AboutToolStripMenu.Size = new System.Drawing.Size(180, 22);
             this.AboutToolStripMenu.Text = "About";
-            this.AboutToolStripMenu.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.AboutToolStripMenu.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // ChoseNotesComboBox
             // 
@@ -212,6 +212,7 @@ namespace NoteApp.View
             // 
             // CreatedDateTimePicker
             // 
+            this.CreatedDateTimePicker.Enabled = false;
             this.CreatedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.CreatedDateTimePicker.Location = new System.Drawing.Point(348, 73);
             this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
@@ -220,6 +221,7 @@ namespace NoteApp.View
             // 
             // ModifiedDateTimePicker
             // 
+            this.ModifiedDateTimePicker.Enabled = false;
             this.ModifiedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.ModifiedDateTimePicker.Location = new System.Drawing.Point(502, 73);
             this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
@@ -293,6 +295,7 @@ namespace NoteApp.View
             this.NotesTextBox.Location = new System.Drawing.Point(298, 99);
             this.NotesTextBox.Multiline = true;
             this.NotesTextBox.Name = "NotesTextBox";
+            this.NotesTextBox.ReadOnly = true;
             this.NotesTextBox.Size = new System.Drawing.Size(490, 342);
             this.NotesTextBox.TabIndex = 18;
             // 
@@ -320,7 +323,6 @@ namespace NoteApp.View
             this.Name = "MainForm";
             this.Text = "NoteApp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
             this.ResumeLayout(false);

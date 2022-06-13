@@ -53,10 +53,10 @@ namespace NoteApp.Model
                         $" Please, try again");
                 }
                 _title = value;
-                _modifiedAt = DateTime.UtcNow;
+                _modifiedAt = DateTime.Now;
             }
         }
-        
+
         /// <summary>
         /// Возвращает или задает категорию заметки.
         /// </summary>
@@ -69,7 +69,7 @@ namespace NoteApp.Model
             set
             {
                 _category = value;
-                _modifiedAt = DateTime.UtcNow;
+                _modifiedAt = DateTime.Now;
             }
         }
 
@@ -85,7 +85,7 @@ namespace NoteApp.Model
             set
             {
                 _text = value;
-                _modifiedAt = DateTime.UtcNow;
+                _modifiedAt = DateTime.Now;
             }
         }
 
@@ -101,6 +101,17 @@ namespace NoteApp.Model
         }
 
         /// <summary>
+        /// Возвращает время изменения заметки.
+        /// </summary>
+        public DateTime ModifiedAt
+        {
+            get
+            {
+                return _modifiedAt;
+            }
+        }
+
+        /// <summary>
         /// Создает экземпляр <see cref="Note">
         /// </summary>
         /// <param name="title">Название заметки</param>
@@ -111,8 +122,8 @@ namespace NoteApp.Model
             Title = title;
             Category = category;
             Text = text;
-            _createdAt = DateTime.UtcNow;
-            _modifiedAt = DateTime.UtcNow;
+            _createdAt = DateTime.Now;
+            _modifiedAt = DateTime.Now;
         }
     }
 }

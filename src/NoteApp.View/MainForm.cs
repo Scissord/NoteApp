@@ -20,92 +20,6 @@ namespace NoteApp.View
         private Project _project = new Project();
 
         /// <summary>
-        /// Запуск главного окна.
-        /// </summary>
-        public MainForm()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Загрузка главного окна.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Обработчик события для удаления заметки.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DeleteNoteButton_Click(object sender, EventArgs e)
-        {
-            int index = AllNotesListBox.SelectedIndex;
-            RemoveNote(index);
-            UpdateListBox();
-        }
-
-        /// <summary>
-        /// Обработчик события для изменения заметки.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditNoteButton_Click(object sender, EventArgs e)
-        {
-            NoteForm noteForm = new NoteForm();
-            noteForm.ShowDialog();
-        }
-
-        /// <summary>
-        /// Обработчик события Strip Menu для добавления заметки.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddNote();
-            UpdateListBox();
-        }
-
-        /// <summary>
-        /// Обработчик события Strip Menu для изменения заметки.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NoteForm noteForm = new NoteForm();
-            noteForm.ShowDialog();
-        }
-
-        /// <summary>
-        /// Обработчик события для вызова формы с информацией.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.ShowDialog();
-        }
-
-        /// <summary>
-        /// Обработчик события Strip Menu для удаления заметки.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RemoveNoteToolStripMenu_Click(object sender, EventArgs e)
-        {
-            int index = AllNotesListBox.SelectedIndex;
-            RemoveNote(index);
-            UpdateListBox();
-        }
-
-        /// <summary>
         /// Обновить элемент ListBox.
         /// </summary>
         private void UpdateListBox()
@@ -123,7 +37,12 @@ namespace NoteApp.View
         /// <param name="index">Индекс выбранного элемента.</param>
         private void UpdateSelectNote(int index)
         {
-            NotesTextBox.Text = _project.Notes[index].Text;
+            Note selectedNote = _project.Notes[index];
+            NotesTextBox.Text = selectedNote.Text;
+            ContentLabel.Text = selectedNote.Title;
+            CategoryAnswerLabel.Text = selectedNote.Category.ToString();
+            CreatedDateTimePicker.Value = selectedNote.CreatedAt;
+            ModifiedDateTimePicker.Value = selectedNote.ModifiedAt;
         }
 
         /// <summary>
@@ -139,11 +58,11 @@ namespace NoteApp.View
         /// </summary>
         private void AddNote()
         {
-            var surname = System.IO.Path.GetRandomFileName();
-            var surname2 = System.IO.Path.GetRandomFileName();
-            Random round = new Random();
-            int category = round.Next(0, Enum.GetValues(typeof(Category)).Length);
-            _project.Notes.Add(new Note(surname, (Category)category, surname2));
+            var title = System.IO.Path.GetRandomFileName();
+            var text = System.IO.Path.GetRandomFileName();
+            Random random = new Random();
+            int category = random.Next(0, Enum.GetValues(typeof(Category)).Length);
+            _project.Notes.Add(new Note(title, (Category)category, text));
         }
 
         /// <summary>
@@ -169,14 +88,12 @@ namespace NoteApp.View
                     _project.Notes.RemoveAt(index);
                 }
             }
-            
+
         }
-        
+
         /// <summary>
         /// Изменение выбранной заметки.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void AllNotesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = AllNotesListBox.SelectedIndex;
@@ -191,31 +108,8 @@ namespace NoteApp.View
         }
 
         /// <summary>
-        /// Завершение программы.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ExitToolStripMenu_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        
-        /// <summary>
-        /// Обработчик события для добавления заметки.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddNoteButton_Click(object sender, EventArgs e)
-        {
-            AddNote();
-            UpdateListBox();
-        }
-
-        /// <summary>
         /// Выход из приложения.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
@@ -231,6 +125,85 @@ namespace NoteApp.View
             {
                 return;
             }
+        }
+
+        /// <summary>
+        /// Запуск главного окна.
+        /// </summary>
+        public MainForm()
+        {
+            InitializeComponent();
+            ChoseNotesComboBox.DataSource = Enum.GetValues(typeof(Category));
+        }
+
+        /// <summary>
+        /// Обработчик события для удаления заметки.
+        /// </summary>
+        private void DeleteNoteButton_Click(object sender, EventArgs e)
+        {
+            int index = AllNotesListBox.SelectedIndex;
+            RemoveNote(index);
+            UpdateListBox();
+        }
+
+        /// <summary>
+        /// Обработчик события для изменения заметки.
+        /// </summary>
+        private void EditNoteButton_Click(object sender, EventArgs e)
+        {
+            NoteForm noteForm = new NoteForm();
+            noteForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Обработчик события Strip Menu для удаления заметки.
+        /// </summary>
+        private void RemoveNoteToolStripMenu_Click(object sender, EventArgs e)
+        {
+            int index = AllNotesListBox.SelectedIndex;
+            RemoveNote(index);
+            UpdateListBox();
+        }
+        
+        /// <summary>
+        /// Завершение программы.
+        /// </summary>
+        private void ExitToolStripMenu_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        
+        /// <summary>
+        /// Обработчик события для добавления заметки.
+        /// </summary>
+        private void AddNoteButton_Click(object sender, EventArgs e)
+        {
+            AddNote();
+            UpdateListBox();
+        }
+
+        /// <summary>
+        /// Обработчик события Strip Menu для добавления заметки.
+        /// </summary>
+        private void AddNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNote();
+            UpdateListBox();
+        }
+
+        /// <summary>
+        /// Обработчик события Strip Menu для изменения заметки.
+        /// </summary>
+        private void EditNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NoteForm noteForm = new NoteForm();
+            noteForm.ShowDialog();
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
     }
 }

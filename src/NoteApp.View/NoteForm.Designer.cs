@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
             this.TitleLabel = new System.Windows.Forms.Label();
-            this.CategoryLabel2 = new System.Windows.Forms.Label();
-            this.CreatedLabel2 = new System.Windows.Forms.Label();
-            this.ContentTextBox = new System.Windows.Forms.TextBox();
-            this.CategoryAskingLabel = new System.Windows.Forms.ComboBox();
-            this.ModifiedLabel2 = new System.Windows.Forms.Label();
-            this.CreatedDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.ModifiedDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.CreatedLabel = new System.Windows.Forms.Label();
+            this.TitleTextBox = new System.Windows.Forms.TextBox();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.ModifiedLabel = new System.Windows.Forms.Label();
+            this.CreatedDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ModifiedDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.NotesTextBox2 = new System.Windows.Forms.TextBox();
+            this.MainTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -51,66 +51,66 @@
             this.TitleLabel.TabIndex = 0;
             this.TitleLabel.Text = "Title:";
             // 
-            // CategoryLabel2
+            // CategoryLabel
             // 
-            this.CategoryLabel2.AutoSize = true;
-            this.CategoryLabel2.Location = new System.Drawing.Point(12, 41);
-            this.CategoryLabel2.Name = "CategoryLabel2";
-            this.CategoryLabel2.Size = new System.Drawing.Size(52, 13);
-            this.CategoryLabel2.TabIndex = 1;
-            this.CategoryLabel2.Text = "Category:";
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Location = new System.Drawing.Point(12, 41);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
+            this.CategoryLabel.TabIndex = 1;
+            this.CategoryLabel.Text = "Category:";
             // 
-            // CreatedLabel2
+            // CreatedLabel
             // 
-            this.CreatedLabel2.AutoSize = true;
-            this.CreatedLabel2.Location = new System.Drawing.Point(12, 67);
-            this.CreatedLabel2.Name = "CreatedLabel2";
-            this.CreatedLabel2.Size = new System.Drawing.Size(47, 13);
-            this.CreatedLabel2.TabIndex = 2;
-            this.CreatedLabel2.Text = "Created:";
+            this.CreatedLabel.AutoSize = true;
+            this.CreatedLabel.Location = new System.Drawing.Point(12, 67);
+            this.CreatedLabel.Name = "CreatedLabel";
+            this.CreatedLabel.Size = new System.Drawing.Size(47, 13);
+            this.CreatedLabel.TabIndex = 2;
+            this.CreatedLabel.Text = "Created:";
             // 
-            // ContentTextBox
+            // TitleTextBox
             // 
-            this.ContentTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TitleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContentTextBox.Location = new System.Drawing.Point(70, 12);
-            this.ContentTextBox.Name = "ContentTextBox";
-            this.ContentTextBox.Size = new System.Drawing.Size(528, 20);
-            this.ContentTextBox.TabIndex = 3;
+            this.TitleTextBox.Location = new System.Drawing.Point(70, 12);
+            this.TitleTextBox.Name = "TitleTextBox";
+            this.TitleTextBox.Size = new System.Drawing.Size(528, 20);
+            this.TitleTextBox.TabIndex = 3;
+            this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
-            // CategoryAskingLabel
+            // CategoryComboBox
             // 
-            this.CategoryAskingLabel.FormattingEnabled = true;
-            this.CategoryAskingLabel.Location = new System.Drawing.Point(70, 38);
-            this.CategoryAskingLabel.Name = "CategoryAskingLabel";
-            this.CategoryAskingLabel.Size = new System.Drawing.Size(121, 21);
-            this.CategoryAskingLabel.TabIndex = 4;
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(70, 38);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CategoryComboBox.TabIndex = 4;
             // 
-            // ModifiedLabel2
+            // ModifiedLabel
             // 
-            this.ModifiedLabel2.AutoSize = true;
-            this.ModifiedLabel2.Location = new System.Drawing.Point(173, 67);
-            this.ModifiedLabel2.Name = "ModifiedLabel2";
-            this.ModifiedLabel2.Size = new System.Drawing.Size(50, 13);
-            this.ModifiedLabel2.TabIndex = 5;
-            this.ModifiedLabel2.Text = "Modified:";
+            this.ModifiedLabel.AutoSize = true;
+            this.ModifiedLabel.Location = new System.Drawing.Point(173, 67);
+            this.ModifiedLabel.Name = "ModifiedLabel";
+            this.ModifiedLabel.Size = new System.Drawing.Size(50, 13);
+            this.ModifiedLabel.TabIndex = 5;
+            this.ModifiedLabel.Text = "Modified:";
             // 
-            // CreatedDateTimePicker2
+            // CreatedDateTimePicker
             // 
-            this.CreatedDateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.CreatedDateTimePicker2.Location = new System.Drawing.Point(70, 64);
-            this.CreatedDateTimePicker2.Name = "CreatedDateTimePicker2";
-            this.CreatedDateTimePicker2.Size = new System.Drawing.Size(97, 20);
-            this.CreatedDateTimePicker2.TabIndex = 6;
+            this.CreatedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.CreatedDateTimePicker.Location = new System.Drawing.Point(70, 64);
+            this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
+            this.CreatedDateTimePicker.Size = new System.Drawing.Size(97, 20);
+            this.CreatedDateTimePicker.TabIndex = 6;
             // 
-            // ModifiedDateTimePicker2
+            // ModifiedDateTimePicker
             // 
-            this.ModifiedDateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ModifiedDateTimePicker2.Location = new System.Drawing.Point(229, 64);
-            this.ModifiedDateTimePicker2.Name = "ModifiedDateTimePicker2";
-            this.ModifiedDateTimePicker2.Size = new System.Drawing.Size(105, 20);
-            this.ModifiedDateTimePicker2.TabIndex = 7;
-            this.ModifiedDateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.ModifiedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(229, 64);
+            this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
+            this.ModifiedDateTimePicker.Size = new System.Drawing.Size(105, 20);
+            this.ModifiedDateTimePicker.TabIndex = 7;
             // 
             // OkButton
             // 
@@ -134,34 +134,34 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // NotesTextBox2
+            // MainTextBox
             // 
-            this.NotesTextBox2.Location = new System.Drawing.Point(15, 90);
-            this.NotesTextBox2.Multiline = true;
-            this.NotesTextBox2.Name = "NotesTextBox2";
-            this.NotesTextBox2.Size = new System.Drawing.Size(583, 356);
-            this.NotesTextBox2.TabIndex = 11;
+            this.MainTextBox.Location = new System.Drawing.Point(15, 90);
+            this.MainTextBox.Multiline = true;
+            this.MainTextBox.Name = "MainTextBox";
+            this.MainTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.MainTextBox.Size = new System.Drawing.Size(583, 356);
+            this.MainTextBox.TabIndex = 11;
             // 
             // NoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 487);
-            this.Controls.Add(this.NotesTextBox2);
+            this.Controls.Add(this.MainTextBox);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.ModifiedDateTimePicker2);
-            this.Controls.Add(this.CreatedDateTimePicker2);
-            this.Controls.Add(this.ModifiedLabel2);
-            this.Controls.Add(this.CategoryAskingLabel);
-            this.Controls.Add(this.ContentTextBox);
-            this.Controls.Add(this.CreatedLabel2);
-            this.Controls.Add(this.CategoryLabel2);
+            this.Controls.Add(this.ModifiedDateTimePicker);
+            this.Controls.Add(this.CreatedDateTimePicker);
+            this.Controls.Add(this.ModifiedLabel);
+            this.Controls.Add(this.CategoryComboBox);
+            this.Controls.Add(this.TitleTextBox);
+            this.Controls.Add(this.CreatedLabel);
+            this.Controls.Add(this.CategoryLabel);
             this.Controls.Add(this.TitleLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoteForm";
             this.Text = "Add/Edit Note";
-            this.Load += new System.EventHandler(this.NoteForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,15 +170,15 @@
         #endregion
 
         private System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.Label CategoryLabel2;
-        private System.Windows.Forms.Label CreatedLabel2;
-        private System.Windows.Forms.TextBox ContentTextBox;
-        private System.Windows.Forms.ComboBox CategoryAskingLabel;
-        private System.Windows.Forms.Label ModifiedLabel2;
-        private System.Windows.Forms.DateTimePicker CreatedDateTimePicker2;
-        private System.Windows.Forms.DateTimePicker ModifiedDateTimePicker2;
+        private System.Windows.Forms.Label CategoryLabel;
+        private System.Windows.Forms.Label CreatedLabel;
+        private System.Windows.Forms.TextBox TitleTextBox;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
+        private System.Windows.Forms.Label ModifiedLabel;
+        private System.Windows.Forms.DateTimePicker CreatedDateTimePicker;
+        private System.Windows.Forms.DateTimePicker ModifiedDateTimePicker;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.TextBox NotesTextBox2;
+        private System.Windows.Forms.TextBox MainTextBox;
     }
 }
