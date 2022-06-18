@@ -31,26 +31,28 @@ namespace NoteApp.View
             }
         }
 
-        /// <summary>
-        /// Обновить выбранную заметку.
-        /// </summary>
-        /// <param name="index">Индекс выбранного элемента.</param>
-        private void UpdateSelectNote(int index)
+        private void UpdateSelectedNote(int index)
         {
             Note selectedNote = _project.Notes[index];
             NotesTextBox.Text = selectedNote.Text;
             ContentLabel.Text = selectedNote.Title;
             CategoryAnswerLabel.Text = selectedNote.Category.ToString();
+            CreatedDateTimePicker.Visible = true;
+            ModifiedDateTimePicker.Visible = true;
             CreatedDateTimePicker.Value = selectedNote.CreatedAt;
             ModifiedDateTimePicker.Value = selectedNote.ModifiedAt;
         }
 
         /// <summary>
-        /// Очистить выбранную заметку.
+        /// 
         /// </summary>
         private void ClearSelectedNote()
         {
-            NotesTextBox.Clear();
+            ContentLabel.Text = "";
+            CategoryAnswerLabel.Text = "";
+            NotesTextBox.Text = "";
+            CreatedDateTimePicker.Visible = false;
+            ModifiedDateTimePicker.Visible = false;
         }
 
         /// <summary>
@@ -70,12 +72,8 @@ namespace NoteApp.View
         /// <summary>
         /// Редактирование существующей заметки.
         /// </summary>
-        private void EditNote()
+        private void EditNote(int index)
         {
-            if(AllNotesListBox.SelectedIndex < 0)
-            {
-                return;
-            }
             var selectedIndex = AllNotesListBox.SelectedIndex;
             Note selectedNote = _project.Notes[selectedIndex];
             Note clonedNote = (Note)selectedNote.Clone();
@@ -129,7 +127,7 @@ namespace NoteApp.View
             }
             else
             {
-                UpdateSelectNote(index);
+                UpdateSelectedNote(AllNotesListBox.SelectedIndex);
             }
         }
 
@@ -177,7 +175,7 @@ namespace NoteApp.View
         /// </summary>
         private void EditNoteButton_Click(object sender, EventArgs e)
         {
-            EditNote();
+            EditNote(AllNotesListBox.SelectedIndex);
             UpdateListBox();
         }
 

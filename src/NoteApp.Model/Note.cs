@@ -109,6 +109,10 @@ namespace NoteApp.Model
             {
                 return _modifiedAt;
             }
+            set
+            {
+                _modifiedAt = value;
+            }
         }
 
         /// <summary>
