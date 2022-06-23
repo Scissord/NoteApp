@@ -81,6 +81,7 @@
             // 
             // CategoryComboBox
             // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Items.AddRange(new object[] {
             "Documents",

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -114,6 +115,20 @@ namespace NoteApp.Model
                 _modifiedAt = value;
             }
         }
+
+        /// <summary>
+        /// Конструктор для ProjectSerizlizer.
+        /// </summary>
+        /// <param name="title">Название заметки</param>
+        /// <param name="category">Категория заметки</param>
+        /// <param name="text">Текст заметки</param>
+        /// <param name="createdAt">Время создания заметки</param>
+        /// <param name="modifiedAt">Время изменения заметки</param>
+        [JsonConstructor]
+        public Note(string title, NoteCategory category, string text,
+                        DateTime createdAt, DateTime modifiedAt) =>
+                    (_title, _category, _text, _createdAt, _modifiedAt)
+                    = (title, category, text, createdAt, modifiedAt);
 
         /// <summary>
         /// Создает экземпляр <see cref="Note">

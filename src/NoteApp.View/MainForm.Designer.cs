@@ -204,6 +204,7 @@ namespace NoteApp.View
             // 
             this.ChoseNotesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.ChoseNotesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ChoseNotesComboBox.FormattingEnabled = true;
             this.ChoseNotesComboBox.Items.AddRange(new object[] {
             "All",

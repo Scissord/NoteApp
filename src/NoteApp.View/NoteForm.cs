@@ -81,7 +81,8 @@ namespace NoteApp
         private void UpdateForm()
         {
             TitleTextBox.Text = _noteCopy.Title;
-            CategoryComboBox.SelectedItem = _noteCategoryTools.CategoriesByEnum[_noteCopy.Category];
+            CategoryComboBox.SelectedItem = _noteCategoryTools.CategoriesByEnum
+                [_noteCopy.Category];
             MainTextBox.Text = _noteCopy.Text;
             CreatedDateTimePicker.Value = _noteCopy.CreatedAt;
             ModifiedDateTimePicker.Value = _noteCopy.ModifiedAt;
@@ -92,7 +93,8 @@ namespace NoteApp
         /// </summary>
         private void UpdateNote()
         {
-            _noteCopy.Category = _noteCategoryTools.CategoriesByString[CategoryComboBox.SelectedItem.ToString()];
+            _noteCopy.Category = _noteCategoryTools.CategoriesByString
+                [CategoryComboBox.SelectedItem.ToString()];
             _noteCopy.Title = TitleTextBox.Text;
             _noteCopy.Text = MainTextBox.Text;
         }

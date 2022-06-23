@@ -35,11 +35,17 @@ namespace NoteApp.View
         private const string _allCategory = "All";
 
         /// <summary>
+        /// Экземпляр класса ProjectSerializer для сериализации.
+        /// </summary>
+        private ProjectSerializer _projectSerializer = new ProjectSerializer();
+
+        /// <summary>
         /// Запуск главного окна.
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
+            _project = _projectSerializer.LoadFromFile();
             ChoseNotesComboBox.SelectedIndex = 0;
             ClearSelectedNote();
         }
@@ -67,7 +73,8 @@ namespace NoteApp.View
         {
             if (ChoseNotesComboBox.SelectedItem.ToString() != _allCategory)
             {
-                NoteCategory noteCategory = _noteCategoryTools.CategoriesByString[ChoseNotesComboBox.SelectedItem.ToString()];
+                NoteCategory noteCategory = _noteCategoryTools.CategoriesByString
+                    [ChoseNotesComboBox.SelectedItem.ToString()];
                 _currentNotes = _project.SearchByCategory(_project.Notes, noteCategory);
             }
             else
@@ -134,6 +141,7 @@ namespace NoteApp.View
                 OutputByCategory();
                 UpdateListBox();
                 AllNotesListBox.SelectedIndex = 0;
+                _projectSerializer.SaveToFile(_project);
             }   
         }
 
@@ -159,6 +167,7 @@ namespace NoteApp.View
                 OutputByCategory();
                 UpdateSelectedNote(AllNotesListBox.SelectedIndex);
                 UpdateListBox();
+                _projectSerializer.SaveToFile(_project);
             }
             AllNotesListBox.SelectedIndex = currentIndex;
         }
@@ -174,15 +183,16 @@ namespace NoteApp.View
                 return;
             }
             index = FindProjectIndex(index);
-            var result = MessageBox.Show("Do you really want to remove " + "\"" + AllNotesListBox.SelectedItem.ToString() + "\"" +
-                "?", "Deleting a note", MessageBoxButtons.OKCancel, MessageBoxIcon.Information,
-                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            var result = MessageBox.Show("Do you really want to remove " + "\"" + 
+                AllNotesListBox.SelectedItem.ToString() + "\"" +
+                "?", "Deleting a note", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (result == DialogResult.OK)
             {
                 _project.Notes.RemoveAt(index);
                 ClearSelectedNote();
                 OutputByCategory();
                 UpdateListBox();
+                _projectSerializer.SaveToFile(_project);
             }
         }
 

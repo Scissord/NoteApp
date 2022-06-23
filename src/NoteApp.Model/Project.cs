@@ -31,7 +31,8 @@ namespace NoteApp.Model
         /// <returns></returns>
         public List<Note> SortByModificationTime(List<Note> notes)
         {
-            notes = notes.OrderByDescending(note => note.ModifiedAt).ToList();
+            notes = notes.OrderByDescending(note 
+                => note.ModifiedAt).ToList();
             return notes;
         }
 
@@ -43,7 +44,8 @@ namespace NoteApp.Model
         /// <returns></returns>
         public List<Note> SearchByCategory(List<Note> notes, NoteCategory noteCategory)
         {
-            notes = Notes.Where(note => note.Category == noteCategory).ToList();
+            notes = Notes.Where(note 
+                => note.Category == noteCategory).ToList();
             return notes;
         }
     }
