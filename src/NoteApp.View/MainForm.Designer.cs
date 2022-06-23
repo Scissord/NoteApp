@@ -205,10 +205,20 @@ namespace NoteApp.View
             this.ChoseNotesComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ChoseNotesComboBox.FormattingEnabled = true;
+            this.ChoseNotesComboBox.Items.AddRange(new object[] {
+            "All",
+            "Documents",
+            "Finance",
+            "Health and Sports",
+            "Home",
+            "People",
+            "Work",
+            "Other"});
             this.ChoseNotesComboBox.Location = new System.Drawing.Point(91, 27);
             this.ChoseNotesComboBox.Name = "ChoseNotesComboBox";
             this.ChoseNotesComboBox.Size = new System.Drawing.Size(188, 21);
             this.ChoseNotesComboBox.TabIndex = 11;
+            this.ChoseNotesComboBox.SelectedIndexChanged += new System.EventHandler(this.ChoseNotesComboBox_SelectedIndexChanged);
             // 
             // CreatedDateTimePicker
             // 

@@ -9,7 +9,7 @@ namespace NoteApp.Model
     /// <summary>
     /// Описывает Заметку.
     /// </summary>
-    public class Note
+    public class Note : ICloneable
     {
         /// <summary>
         /// Название заметки.
@@ -19,7 +19,7 @@ namespace NoteApp.Model
         /// <summary>
         /// Категория заметки.
         /// </summary>
-        private Category _category;
+        private NoteCategory _category;
 
         /// <summary>
         /// Текст заметки.
@@ -29,7 +29,7 @@ namespace NoteApp.Model
         /// <summary>
         /// Время создания заметки.
         /// </summary>
-        private DateTime _createdAt;
+        private DateTime _createdAt = DateTime.Now;
 
         /// <summary>
         /// Время последнего изменения заметки.
@@ -60,7 +60,7 @@ namespace NoteApp.Model
         /// <summary>
         /// Возвращает или задает категорию заметки.
         /// </summary>
-        public Category Category
+        public NoteCategory Category
         {
             get
             {
@@ -121,13 +121,18 @@ namespace NoteApp.Model
         /// <param name="title">Название заметки</param>
         /// <param name="category">Категория заметки</param>
         /// <param name="text">Текст заметки</param>
-        public Note(string title, Category category, string text)
+        public Note(string title, NoteCategory category, string text)
         {
             Title = title;
             Category = category;
             Text = text;
-            _createdAt = DateTime.Now;
-            _modifiedAt = DateTime.Now;
+        }
+
+        /// <summary>
+        /// Создаёт пустой экземпляр.
+        /// </summary>
+        public Note()
+        {
         }
 
         /// <summary>

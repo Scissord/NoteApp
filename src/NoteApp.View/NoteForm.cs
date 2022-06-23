@@ -26,12 +26,22 @@ namespace NoteApp
         /// <summary>
         /// Заметка.
         /// </summary>
-        private Note _note = new Note("", Category.Job, "");
+        private Note _note = new Note();
+
+        /// <summary>
+        /// Копия заметки
+        /// </summary>
+        private Note _noteCopy = new Note();
 
         /// <summary>
         /// Ошибка.
         /// </summary>
-        private string _titleError;
+        private string _noteError;
+
+        /// <summary>
+        /// Словари с категориями заметки.
+        /// </summary>
+        private NoteCategoryTools _noteCategoryTools = new NoteCategoryTools();
 
         /// <summary>
         /// Создание формы.
@@ -39,8 +49,6 @@ namespace NoteApp
         public NoteForm()
         {
             InitializeComponent();
-            CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));
-            UpdateForm();
         }
 
         /// <summary>
@@ -55,6 +63,15 @@ namespace NoteApp
             set
             {
                 _note = value;
+                if (_note != null)
+                {
+                    _noteCopy = (Note)_note.Clone();
+                }
+                else 
+                {
+                    _noteCopy = new Note();
+                }
+                UpdateForm();
             }
         }
 
@@ -63,9 +80,11 @@ namespace NoteApp
         /// </summary>
         private void UpdateForm()
         {
-            TitleTextBox.Text = _note.Title;
-            CategoryComboBox.SelectedItem = _note.Category.ToString();
-            MainTextBox.Text = _note.Text;
+            TitleTextBox.Text = _noteCopy.Title;
+            CategoryComboBox.SelectedItem = _noteCategoryTools.CategoriesByEnum[_noteCopy.Category];
+            MainTextBox.Text = _noteCopy.Text;
+            CreatedDateTimePicker.Value = _noteCopy.CreatedAt;
+            ModifiedDateTimePicker.Value = _noteCopy.ModifiedAt;
         }
 
         /// <summary>
@@ -73,10 +92,9 @@ namespace NoteApp
         /// </summary>
         private void UpdateNote()
         {
-            _note.Title = TitleTextBox.Text;
-            _note.Category = (Category)Enum.Parse(typeof(Category),
-                CategoryComboBox.SelectedValue.ToString());
-            _note.Text = MainTextBox.Text;
+            _noteCopy.Category = _noteCategoryTools.CategoriesByString[CategoryComboBox.SelectedItem.ToString()];
+            _noteCopy.Title = TitleTextBox.Text;
+            _noteCopy.Text = MainTextBox.Text;
         }
 
         /// <summary>
@@ -86,14 +104,14 @@ namespace NoteApp
         {
             try
             {
-                _note.Title = TitleTextBox.Text;
+                _noteCopy.Title = TitleTextBox.Text;
                 TitleTextBox.BackColor = _rightColor;
-                _titleError = "";
+                _noteError = "";
             }
             catch (ArgumentException exception)
             {
                 TitleTextBox.BackColor = _wrongColor;
-                _titleError = exception.Message;
+                _noteError = exception.Message;
             }
         }
 
@@ -102,8 +120,9 @@ namespace NoteApp
         /// </summary>
         private bool CheckFormOnErrors()
         {
-            if(_titleError != "")
+            if(_noteError != "")
             {
+                MessageBox.Show(_noteError);
                 return false;
             }
             else
@@ -117,16 +136,12 @@ namespace NoteApp
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            try
+            if (CheckFormOnErrors())
             {
-                CheckFormOnErrors();
                 UpdateNote();
+                _note = _noteCopy;
                 DialogResult = DialogResult.OK;
                 this.Close();
-            }
-            catch(ArgumentException exception)
-            {
-                MessageBox.Show(exception.Message, "Ошибка ввода");
             }
         }
 
