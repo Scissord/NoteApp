@@ -210,7 +210,7 @@ namespace NoteApp.View
             "All",
             "Documents",
             "Finance",
-            "Health and Sports",
+            "HealthAndSports",
             "Home",
             "People",
             "Work",

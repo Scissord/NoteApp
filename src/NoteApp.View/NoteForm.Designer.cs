@@ -86,7 +86,7 @@
             this.CategoryComboBox.Items.AddRange(new object[] {
             "Documents",
             "Finance",
-            "Health and Sports",
+            "HealthAndSports",
             "Home",
             "People",
             "Work",
@@ -95,6 +95,7 @@
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.CategoryComboBox.TabIndex = 4;
+            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
             // 
             // ModifiedLabel
             // 

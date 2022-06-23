@@ -39,16 +39,12 @@ namespace NoteApp
         private string _noteError;
 
         /// <summary>
-        /// Словари с категориями заметки.
-        /// </summary>
-        private NoteCategoryTools _noteCategoryTools = new NoteCategoryTools();
-
-        /// <summary>
         /// Создание формы.
         /// </summary>
         public NoteForm()
         {
             InitializeComponent();
+            UpdateForm();
         }
 
         /// <summary>
@@ -81,8 +77,8 @@ namespace NoteApp
         private void UpdateForm()
         {
             TitleTextBox.Text = _noteCopy.Title;
-            CategoryComboBox.SelectedItem = _noteCategoryTools.CategoriesByEnum
-                [_noteCopy.Category];
+            CategoryComboBox.SelectedItem = Enum.GetName(typeof(NoteCategory),
+                _noteCopy.Category);
             MainTextBox.Text = _noteCopy.Text;
             CreatedDateTimePicker.Value = _noteCopy.CreatedAt;
             ModifiedDateTimePicker.Value = _noteCopy.ModifiedAt;
@@ -93,8 +89,8 @@ namespace NoteApp
         /// </summary>
         private void UpdateNote()
         {
-            _noteCopy.Category = _noteCategoryTools.CategoriesByString
-                [CategoryComboBox.SelectedItem.ToString()];
+            _noteCopy.Category = (NoteCategory)Enum.Parse(typeof(NoteCategory),
+                CategoryComboBox.GetItemText(CategoryComboBox.SelectedItem));
             _noteCopy.Title = TitleTextBox.Text;
             _noteCopy.Text = MainTextBox.Text;
         }
@@ -154,6 +150,12 @@ namespace NoteApp
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _noteCopy.Category = (NoteCategory)Enum.Parse(typeof(NoteCategory), 
+                CategoryComboBox.GetItemText(CategoryComboBox.SelectedIndex));
         }
     }
 }

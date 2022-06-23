@@ -25,11 +25,6 @@ namespace NoteApp.View
         private List<Note> _currentNotes;
 
         /// <summary>
-        /// Словари с категорией заметки.
-        /// </summary>
-        private NoteCategoryTools _noteCategoryTools = new NoteCategoryTools();
-
-        /// <summary>
         /// Все заметки.
         /// </summary>
         private const string _allCategory = "All";
@@ -73,8 +68,8 @@ namespace NoteApp.View
         {
             if (ChoseNotesComboBox.SelectedItem.ToString() != _allCategory)
             {
-                NoteCategory noteCategory = _noteCategoryTools.CategoriesByString
-                    [ChoseNotesComboBox.SelectedItem.ToString()];
+                NoteCategory noteCategory = (NoteCategory)Enum.Parse(typeof(NoteCategory),
+                    ChoseNotesComboBox.GetItemText(ChoseNotesComboBox.SelectedItem));
                 _currentNotes = _project.SearchByCategory(_project.Notes, noteCategory);
             }
             else
@@ -101,7 +96,7 @@ namespace NoteApp.View
         /// </summary>
         private void UpdateSelectedNote(int index)
         {
-            if ((index == -1) || (_currentNotes.Count == 0))
+            if ((index == -1) || (_currentNotes.Count == 0) || (_currentNotes.Count <= index))
             {
                 ClearSelectedNote();
                 return;
@@ -109,7 +104,7 @@ namespace NoteApp.View
             Note selectedNote = _currentNotes[index];
             NotesTextBox.Text = selectedNote.Text;
             ContentLabel.Text = selectedNote.Title;
-            CategoryAnswerLabel.Text = _noteCategoryTools.CategoriesByEnum[selectedNote.Category];
+            CategoryAnswerLabel.Text = selectedNote.Category.ToString();
             CreatedDateTimePicker.Visible = true;
             ModifiedDateTimePicker.Visible = true;
             CreatedDateTimePicker.Value = selectedNote.CreatedAt;
