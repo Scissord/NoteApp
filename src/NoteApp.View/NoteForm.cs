@@ -152,6 +152,11 @@ namespace NoteApp
             this.Close();
         }
 
+        /// <summary>
+        /// Обработчик события для выбора категории.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _noteCopy.Category = (NoteCategory)Enum.Parse(typeof(NoteCategory), 
