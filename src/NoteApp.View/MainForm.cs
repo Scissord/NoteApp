@@ -48,17 +48,9 @@ namespace NoteApp.View
         /// <summary>
         /// Поиск индекса в списке заметок по индексу заметки из текущей категории.
         /// </summary>
-        private int FindProjectIndex(int index)
+        private int FindNoteIndexInProjects(int index)
         {
-            for (int i = 0; i < _project.Notes.Count; i++)
-            {
-                if (_project.Notes[i] == _currentNotes[index])
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
+            return _project.Notes.IndexOf(_currentNotes[index]);
         }
 
         /// <summary>
@@ -151,7 +143,7 @@ namespace NoteApp.View
             }
             int currentIndex = index;
             Note note = _project.Notes[index];
-            index = FindProjectIndex(index);
+            index = FindNoteIndexInProjects(index);
             NoteForm noteForm = new NoteForm();
             noteForm.Note = _project.Notes[index];
             noteForm.ShowDialog();
@@ -177,7 +169,7 @@ namespace NoteApp.View
             {
                 return;
             }
-            index = FindProjectIndex(index);
+            index = FindNoteIndexInProjects(index);
             var result = MessageBox.Show("Do you really want to remove " + "\"" + 
                 AllNotesListBox.SelectedItem.ToString() + "\"" +
                 "?", "Deleting a note", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);

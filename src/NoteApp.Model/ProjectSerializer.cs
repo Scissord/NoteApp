@@ -21,11 +21,6 @@ namespace NoteApp.Model
             Environment.SpecialFolder.ApplicationData) + "\\knm\\NoteApp";
 
         /// <summary>
-        /// Экземпляр класса потока.
-        /// </summary>
-        private Stream _stream;
-
-        /// <summary>
         /// Путь до файла userdata.json.
         /// </summary>
         public string FileName { get; set; }
@@ -39,15 +34,11 @@ namespace NoteApp.Model
             if (!(Directory.Exists(_path)))
             {
                 Directory.CreateDirectory(_path);
-                if (!File.Exists(FileName))
-                {
-                    File.Create(FileName);
-                }
             }
             JsonSerializer serializer = new JsonSerializer();
-            using (_stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Write))
+            using (var stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Write))
             {
-                StreamWriter myWriter = new StreamWriter(_stream);
+                StreamWriter myWriter = new StreamWriter(stream);
                 using (JsonWriter writer = new JsonTextWriter(myWriter))
                 {
                     serializer.Serialize(writer, project);
@@ -65,17 +56,13 @@ namespace NoteApp.Model
             if (!(Directory.Exists(_path)))
             {
                 Directory.CreateDirectory(_path);
-                if (!File.Exists(FileName))
-                {
-                    File.Create(FileName);
-                }
             }
             try
             {
                 JsonSerializer serializer = new JsonSerializer();
-                using (_stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Read))
+                using (var stream = File.Open(@FileName, FileMode.OpenOrCreate, FileAccess.Read))
                 {
-                    StreamReader myReader = new StreamReader(_stream);
+                    StreamReader myReader = new StreamReader(stream);
                     using (JsonReader reader = new JsonTextReader(myReader))
                     {
                         project = (Project)serializer.Deserialize(reader, typeof(Project));

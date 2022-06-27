@@ -1,4 +1,4 @@
-﻿namespace NoteApp
+﻿namespace NoteApp.View
 {
     partial class NoteForm
     {
@@ -146,6 +146,9 @@
             // 
             // MainTextBox
             // 
+            this.MainTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MainTextBox.Location = new System.Drawing.Point(15, 90);
             this.MainTextBox.Multiline = true;
             this.MainTextBox.Name = "MainTextBox";

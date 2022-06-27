@@ -303,10 +303,14 @@ namespace NoteApp.View
             // 
             // NotesTextBox
             // 
+            this.NotesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NotesTextBox.Location = new System.Drawing.Point(298, 99);
             this.NotesTextBox.Multiline = true;
             this.NotesTextBox.Name = "NotesTextBox";
             this.NotesTextBox.ReadOnly = true;
+            this.NotesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.NotesTextBox.Size = new System.Drawing.Size(490, 342);
             this.NotesTextBox.TabIndex = 18;
             // 
